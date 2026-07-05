@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://jap1rya58yap"]
+
+[ext_resource type="Script" uid="uid://n0jts5f0aele" path="res://hud.gd" id="1_37p78"]
+[ext_resource type="FontFile" uid="uid://bkvdho81u203v" path="res://fonts/Xolonium-Regular.ttf" id="2_64ctp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_37p78"]
+line_spacing = 10.0
+font = ExtResource("2_64ctp")
+
+[sub_resource type="LabelSettings" id="LabelSettings_i3pqv"]
+font = ExtResource("2_64ctp")
+
+[sub_resource type="LabelSettings" id="LabelSettings_onrkg"]
+font = ExtResource("2_64ctp")
+
+[node name="HUD" type="CanvasLayer" unique_id=397780301]
+script = ExtResource("1_37p78")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1110945068]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "0"
+label_settings = SubResource("LabelSettings_37p78")
+
+[node name="Message" type="Label" parent="." unique_id=1257920300]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -11.5
+offset_right = 71.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Dodge the Creeps!"
+label_settings = SubResource("LabelSettings_i3pqv")
+
+[node name="StartButton" type="Button" parent="." unique_id=1349611781]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.96300006
+anchor_right = 0.50600004
+anchor_bottom = 0.96300006
+offset_left = -20.0
+offset_top = -15.360046
+offset_right = 23.11998
+offset_bottom = 15.639954
+grow_horizontal = 2
+grow_vertical = 0
+text = "Start"
+
+[node name="MessageTimer" type="Timer" parent="." unique_id=969673290]
+wait_time = 2.0
+one_shot = true
+
+[node name="StudentIDLabel" type="Label" parent="." unique_id=877348985]
+offset_left = 137.0
+offset_top = 217.0
+offset_right = 361.0
+offset_bottom = 266.0
+text = "พัฒนาโดย: นายทรงพล บุญเที่ยง
+รหัสนักศึกษา: 6733803159"
+label_settings = SubResource("LabelSettings_onrkg")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
